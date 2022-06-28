@@ -20,6 +20,9 @@ mongoose.connect(url, {dbName: 'myworkout'})
     })
     .catch((e)=>console.log(e))
 
-app.use('/goals', require('./routes/goals'))
+app.use('/goal', require('./routes/goal'))
+app.use('/step', require('./routes/step'))
+app.use('/postural', require('./routes/posturalDeviation'))
+app.use('/assymmetry', require('./routes/assymmetry'))
 
 module.exports = app

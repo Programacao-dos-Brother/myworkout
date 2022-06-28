@@ -1,0 +1,24 @@
+const mongoose = require('mongoose')
+
+const StepSchema = new mongoose.Schema({
+    name: String
+})
+
+const Step = mongoose.model('Step', StepSchema)
+
+module.exports.createStep = async (payload) => {
+    return Step.create(payload)
+}
+
+module.exports.readStep = async () => {
+    const step = await Step.find()
+    return step
+}
+
+module.exports.deleteStep = async (id) => {
+    return await Step.deleteOne({_id: id})
+}
+
+module.exports.updateStep = async (id, name) => {
+    return await Step.updateOne({_id: id}, {name: name})
+}
