@@ -13,12 +13,10 @@ const password = encodeURIComponent(process.env.DB_PASS)
 
 const url = `mongodb+srv://${user}:${password}@myworkout.idp1wut.mongodb.net/?retryWrites=true&w=majority`
 
-mongoose.connect(url, {dbName: 'myworkout'})
-    .then(()=>{
-        console.log('conectou')
-        app.listen(3000)
-    })
-    .catch((e)=>console.log(e))
+mongoose.connect(url, {dbName: 'myworkout'}).then(()=>{
+    console.log('conectou')
+    app.listen(3000)
+}).catch((e)=>console.log(e))
 
 app.use('/goal', require('./routes/goal'))
 app.use('/step', require('./routes/step'))

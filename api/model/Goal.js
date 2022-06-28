@@ -15,10 +15,10 @@ module.exports.readGoal = async () => {
     return goals
 }
 
-module.exports.deleteGoal = async (id) => {
-    return await Goal.deleteOne({_id: id})
+module.exports.deleteGoal = (id) => {
+    return Goal.deleteOne({_id: id})
 }
 
-module.exports.updateGoal = async (id, name) => {
-    return await Goal.updateOne({_id: id}, {name: name})
+module.exports.updateGoal = (id, name) => {
+    return Goal.updateOne({_id: id}, {name: name})
 }

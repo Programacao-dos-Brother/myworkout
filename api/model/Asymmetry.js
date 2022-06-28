@@ -15,10 +15,10 @@ module.exports.readAsymmetry = async () => {
     return goals
 }
 
-module.exports.deleteAsymmetry = async (id) => {
-    return await Asymmetry.deleteOne({_id: id})
+module.exports.deleteAsymmetry = (id) => {
+    return Asymmetry.deleteOne({_id: id})
 }
 
 module.exports.updateAsymmetry = async (id, name) => {
-    return await Asymmetry.updateOne({_id: id}, {name: name})
+    return Asymmetry.updateOne({_id: id}, {name: name})
 }

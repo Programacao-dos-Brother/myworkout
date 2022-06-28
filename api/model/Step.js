@@ -15,10 +15,10 @@ module.exports.readStep = async () => {
     return step
 }
 
-module.exports.deleteStep = async (id) => {
-    return await Step.deleteOne({_id: id})
+module.exports.deleteStep = (id) => {
+    return Step.deleteOne({_id: id})
 }
 
-module.exports.updateStep = async (id, name) => {
-    return await Step.updateOne({_id: id}, {name: name})
+module.exports.updateStep = (id, name) => {
+    return Step.updateOne({_id: id}, {name: name})
 }

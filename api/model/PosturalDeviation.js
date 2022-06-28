@@ -15,10 +15,10 @@ module.exports.readPosturalDeviation = async () => {
     return goals
 }
 
-module.exports.deletePosturalDeviation = async (id) => {
-    return await PosturalDeviation.deleteOne({_id: id})
+module.exports.deletePosturalDeviation = (id) => {
+    return PosturalDeviation.deleteOne({_id: id})
 }
 
-module.exports.updatePosturalDeviation = async (id, name) => {
-    return await PosturalDeviation.updateOne({_id: id}, {name: name})
+module.exports.updatePosturalDeviation = (id, name) => {
+    return PosturalDeviation.updateOne({_id: id}, {name: name})
 }
