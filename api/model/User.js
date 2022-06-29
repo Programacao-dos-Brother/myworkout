@@ -74,7 +74,7 @@ module.exports.login = async (email, password) => {
 
 module.exports.createUser = async (obj) => {
     try {
-        if (obj.password) obj.password = await crypto.createHmac('sha256', secret_key).update(obj.password).digest('hex')
+        if (obj.password) obj.password = crypto.createHmac('sha256', secret_key).update(obj.password).digest('hex')
         obj.status = true
         return await User.create(obj)
     } catch (e) {

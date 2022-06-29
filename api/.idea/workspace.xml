@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d4a28318-0f06-4490-848c-1a70b8cdf7c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Asymmetry.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/Asymmetry.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Goal.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/Goal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/PosturalDeviation.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/PosturalDeviation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Step.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/Step.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
