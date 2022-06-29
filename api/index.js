@@ -23,7 +23,7 @@ mongoose.connect(url, {dbName: 'myworkout'}).then(()=>{
 app.use('/goal', require('./routes/goal'))
 app.use('/step', require('./routes/step'))
 app.use('/postural', require('./routes/posturalDeviation'))
-app.use('/assymmetry', require('./routes/assymmetry'))
+app.use('/asymmetry', require('./routes/asymmetry'))
 app.use('/user', require('./routes/user'))
 app.use('/auth', require('./routes/auth'))
 

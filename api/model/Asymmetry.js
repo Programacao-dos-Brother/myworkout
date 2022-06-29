@@ -1,43 +1,37 @@
-const mongoose = require('mongoose')
+const Asymmetry = require('../schema/asymmetry')
 
-const AsymmetrySchema = new mongoose.Schema({
-    name: String
-})
-
-const Asymmetry = mongoose.model('Asymmetry', AsymmetrySchema)
-
-module.exports.createAsymmetry = async (payload) => {
+exports.createAsymmetry = async (req, res, next) => {
     try {
-        return await Asymmetry.create(payload)
-    } catch (e) {
-        console.log(e)
-        return e
+        const asymmetry = await Asymmetry.create(req.body)
+        return res.status(201).send(asymmetry)
+    } catch (error) {
+        return res.status(500).send({ error: error })
     }
 }
 
-module.exports.readAsymmetry = async () => {
+exports.readAsymmetry = async (req, res, next) => {
     try {
-        return await Asymmetry.find()
+        const list = await Asymmetry.find()
+        return res.status(200).send(list)
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: error })
     }
 }
 
-module.exports.deleteAsymmetry = async (id) => {
+exports.deleteAsymmetry = async (req, res, next) => {
     try {
-        return await Asymmetry.deleteOne({_id: id})
+        const response = await Asymmetry.deleteOne({_id: req.params.id})
+        return res.status(202).send(response)
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: error })
     }
 }
 
-module.exports.updateAsymmetry = async (id, name) => {
+exports.updateAsymmetry = async (req, res, next) => {
     try {
-        return await Asymmetry.updateOne({_id: id}, {name: name})
+        const response = await Asymmetry.updateOne({_id: req.params.id}, {name: req.body.name})
+        return res.status(202).send(response)
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: error })
     }
 }
