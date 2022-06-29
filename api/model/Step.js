@@ -7,18 +7,37 @@ const StepSchema = new mongoose.Schema({
 const Step = mongoose.model('Step', StepSchema)
 
 module.exports.createStep = async (payload) => {
-    return Step.create(payload)
+    try {
+        return await Step.create(payload)
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
 
 module.exports.readStep = async () => {
-    const step = await Step.find()
-    return step
+    try {
+        return await Step.find()
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
 
-module.exports.deleteStep = (id) => {
-    return Step.deleteOne({_id: id})
+module.exports.deleteStep = async (id) => {
+    try {
+        return await Step.deleteOne({_id: id})
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
 
-module.exports.updateStep = (id, name) => {
-    return Step.updateOne({_id: id}, {name: name})
+module.exports.updateStep = async (id, name) => {
+    try {
+        return await Step.updateOne({_id: id}, {name: name})
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }

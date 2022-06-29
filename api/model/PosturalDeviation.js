@@ -7,18 +7,37 @@ const PosturalDeviationSchema = new mongoose.Schema({
 const PosturalDeviation = mongoose.model('PosturalDeviation', PosturalDeviationSchema)
 
 module.exports.createPosturalDeviation = async (payload) => {
-    return PosturalDeviation.create(payload)
+    try {
+        return await PosturalDeviation.create(payload)
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
 
 module.exports.readPosturalDeviation = async () => {
-    const goals = await PosturalDeviation.find()
-    return goals
+    try {
+        return await PosturalDeviation.find()
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
 
-module.exports.deletePosturalDeviation = (id) => {
-    return PosturalDeviation.deleteOne({_id: id})
+module.exports.deletePosturalDeviation = async (id) => {
+    try {
+        return await PosturalDeviation.deleteOne({_id: id})
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
 
-module.exports.updatePosturalDeviation = (id, name) => {
-    return PosturalDeviation.updateOne({_id: id}, {name: name})
+module.exports.updatePosturalDeviation = async (id, name) => {
+    try {
+        return await PosturalDeviation.updateOne({_id: id}, {name: name})
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }

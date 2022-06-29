@@ -15,6 +15,8 @@ const url = `mongodb+srv://${user}:${password}@myworkout.idp1wut.mongodb.net/?re
 
 mongoose.connect(url, {dbName: 'myworkout'}).then(()=>{
     console.log('conectou')
+    global.secret_key = 'myworkoutsecretkey'
+    global.secretKeyToken = 'fee254868fe498f4f'
     app.listen(3000)
 }).catch((e)=>console.log(e))
 
@@ -22,5 +24,7 @@ app.use('/goal', require('./routes/goal'))
 app.use('/step', require('./routes/step'))
 app.use('/postural', require('./routes/posturalDeviation'))
 app.use('/assymmetry', require('./routes/assymmetry'))
+app.use('/user', require('./routes/user'))
+app.use('/auth', require('./routes/auth'))
 
 module.exports = app

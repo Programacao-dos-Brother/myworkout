@@ -7,18 +7,37 @@ const AsymmetrySchema = new mongoose.Schema({
 const Asymmetry = mongoose.model('Asymmetry', AsymmetrySchema)
 
 module.exports.createAsymmetry = async (payload) => {
-    return Asymmetry.create(payload)
+    try {
+        return await Asymmetry.create(payload)
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
 
 module.exports.readAsymmetry = async () => {
-    const goals = await Asymmetry.find()
-    return goals
+    try {
+        return await Asymmetry.find()
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
 
-module.exports.deleteAsymmetry = (id) => {
-    return Asymmetry.deleteOne({_id: id})
+module.exports.deleteAsymmetry = async (id) => {
+    try {
+        return await Asymmetry.deleteOne({_id: id})
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
 
 module.exports.updateAsymmetry = async (id, name) => {
-    return Asymmetry.updateOne({_id: id}, {name: name})
+    try {
+        return await Asymmetry.updateOne({_id: id}, {name: name})
+    } catch (e) {
+        console.log(e)
+        return e
+    }
 }
