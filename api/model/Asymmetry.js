@@ -14,7 +14,7 @@ exports.readAsymmetry = async (req, res, next) => {
         const list = await Asymmetry.find()
         return res.status(200).send(list)
     } catch (e) {
-        return res.status(500).send({ error: error })
+        return res.status(500).send({ error: e })
     }
 }
 
@@ -23,7 +23,7 @@ exports.deleteAsymmetry = async (req, res, next) => {
         const response = await Asymmetry.deleteOne({_id: req.params.id})
         return res.status(202).send(response)
     } catch (e) {
-        return res.status(500).send({ error: error })
+        return res.status(500).send({ error: e })
     }
 }
 
@@ -32,6 +32,6 @@ exports.updateAsymmetry = async (req, res, next) => {
         const response = await Asymmetry.updateOne({_id: req.params.id}, {name: req.body.name})
         return res.status(202).send(response)
     } catch (e) {
-        return res.status(500).send({ error: error })
+        return res.status(500).send({ error: e })
     }
 }

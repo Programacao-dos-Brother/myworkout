@@ -1,60 +1,5 @@
-const mongoose = require('mongoose')
+const User = require('../schema/user')
 const crypto = require('crypto')
-const UserSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
-        type:String,
-        required: true
-    },
-    phone: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    goals: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Goal'
-        }
-    ],
-    status: {
-      type: Boolean,
-      default: true
-    },
-    steps: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Step'
-        }
-    ],
-    posturals: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'PosturalDeviation'
-        }
-    ],
-    assymmetries: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Asymmetry'
-        }
-    ],
-    permission: Number
-})
-
-const User = mongoose.model('User', UserSchema)
-
-module.exports.root = User
 
 module.exports.login = async (email, password) => {
     try {
@@ -72,31 +17,41 @@ module.exports.login = async (email, password) => {
     }
 }
 
-module.exports.createUser = async (obj) => {
+module.exports.createUser = async (req, res, next) => {
     try {
-        if (obj.password) obj.password = crypto.createHmac('sha256', secret_key).update(obj.password).digest('hex')
-        obj.status = true
-        return await User.create(obj)
+        if (req.body.firstName && req.body.lastName && req.body.password && req.body.email, req.body.phone) {
+            return res.status(201).send(await User.create({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                password: req.body.password,
+                email: req.body.email,
+                phone: req.body.phone,
+                permission: req.body.permission ? req.body.permission : null,
+                goals: req.body.goals ? req.body.goals : null,
+                steps: req.body.steps ? req.body.steps : null,
+                posturals: req.body.posturals ? req.body.posturals : null,
+                assymmetries: req.body.assymmetries ? req.body.assymmetries : null
+            }))
+        } else {
+            return res.status(400).send({error: 'Missing Information.'})
+        }
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }
 
-module.exports.readUsers = async () => {
+module.exports.readUsers = async (req, res, next) => {
     try {
-        return await User.find().populate('goals').populate('steps').populate('posturals').populate('assymmetries')
+        return res.status(200).send(await User.find().populate('goals').populate('steps').populate('posturals').populate('assymmetries'))
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }
 
-module.exports.readUser = async (id) => {
+module.exports.readUser = async (req, res, next) => {
     try {
-        return await User.findOne({_id: id}).populate('goals').populate('steps').populate('posturals').populate('assymmetries')
+        return res.status(200).send(await User.findOne({_id: req.params.id}).populate('goals').populate('steps').populate('posturals').populate('assymmetries'))
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }

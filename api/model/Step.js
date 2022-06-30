@@ -1,43 +1,42 @@
-const mongoose = require('mongoose')
+const Step = require('../schema/step')
 
-const StepSchema = new mongoose.Schema({
-    name: String
-})
 
-const Step = mongoose.model('Step', StepSchema)
-
-module.exports.createStep = async (payload) => {
+module.exports.createStep = async (req, res, next) => {
     try {
-        return await Step.create(payload)
+        if (req.body.name && req.body.name !== '') {
+            return res.status(201).send(await Step.create(req.body))
+        } else {
+            return res.status(400).send({error: 'Missing name value.'})
+        }
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }
 
-module.exports.readStep = async () => {
+module.exports.readStep = async (req, res, next) => {
     try {
-        return await Step.find()
+        return res.status(200).send(await Step.find())
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }
 
-module.exports.deleteStep = async (id) => {
+module.exports.deleteStep = async (req, res, next) => {
     try {
-        return await Step.deleteOne({_id: id})
+        return res.status(200).send(await Step.deleteOne(req.params.id))
     } catch (e) {
-        console.log(e)
-        return e
+
     }
 }
 
-module.exports.updateStep = async (id, name) => {
+module.exports.updateStep = async (req, res, next) => {
     try {
-        return await Step.updateOne({_id: id}, {name: name})
+        if (req.body.name && req.body.name !== '') {
+            return res.status(200).send(await Step.updateOne({_id: req.params.id}, {name: req.body.name}))
+        } else {
+            return res.status(400).send({error: 'Missing name value.'})
+        }
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }

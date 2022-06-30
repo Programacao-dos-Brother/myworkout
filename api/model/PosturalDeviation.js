@@ -1,43 +1,41 @@
-const mongoose = require('mongoose')
+const PosturalDeviation = require('../schema/posturalDeviation')
 
-const PosturalDeviationSchema = new mongoose.Schema({
-    name: String
-})
-
-const PosturalDeviation = mongoose.model('PosturalDeviation', PosturalDeviationSchema)
-
-module.exports.createPosturalDeviation = async (payload) => {
+module.exports.createPosturalDeviation = async (req, res, next) => {
     try {
-        return await PosturalDeviation.create(payload)
+        if (req.body.name && req.body.name !== '') {
+            res.status(201).send(await PosturalDeviation.create(req.body))
+        } else {
+            res.status(400).send({error: 'Missing name value.'})
+        }
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }
 
-module.exports.readPosturalDeviation = async () => {
+module.exports.readPosturalDeviation = async (req, res, next) => {
     try {
-        return await PosturalDeviation.find()
+        return res.status(200).send(await PosturalDeviation.find())
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }
 
-module.exports.deletePosturalDeviation = async (id) => {
+module.exports.deletePosturalDeviation = async (req, res, next) => {
     try {
-        return await PosturalDeviation.deleteOne({_id: id})
+        return res.status(200).send(await PosturalDeviation.deleteOne({_id: req.params.id}))
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }
 
-module.exports.updatePosturalDeviation = async (id, name) => {
+module.exports.updatePosturalDeviation = async (req, res, next) => {
     try {
-        return await PosturalDeviation.updateOne({_id: id}, {name: name})
+        if (req.body.name && req.body.name !== '') {
+            res.status(200).send(await PosturalDeviation.updateOne({_id: req.params.id}, {name: req.body.name}))
+        } else {
+            res.status(400).send({error: 'Missing name.'})
+        }
     } catch (e) {
-        console.log(e)
-        return e
+        return res.status(500).send({ error: e })
     }
 }
