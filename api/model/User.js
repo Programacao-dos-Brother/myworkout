@@ -19,7 +19,7 @@ module.exports.login = async (email, password) => {
 
 module.exports.createUser = async (req, res, next) => {
     try {
-        if (req.body.firstName && req.body.lastName && req.body.password && req.body.email, req.body.phone) {
+        if (req.body.firstName && req.body.lastName && req.body.password && req.body.email && req.body.phone) {
             return res.status(201).send(await User.create({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
