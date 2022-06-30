@@ -20,10 +20,11 @@ module.exports.login = async (email, password) => {
 module.exports.createUser = async (req, res, next) => {
     try {
         if (req.body.firstName && req.body.lastName && req.body.password && req.body.email && req.body.phone) {
+            let hashedPassword = crypto.createHmac('sha256', secret_key).update(req.body.password).digest('hex')
             return res.status(201).send(await User.create({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                password: req.body.password,
+                password: hashedPassword,
                 email: req.body.email,
                 phone: req.body.phone,
                 permission: req.body.permission ? req.body.permission : null,
