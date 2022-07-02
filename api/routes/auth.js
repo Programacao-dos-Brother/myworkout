@@ -2,17 +2,7 @@ const express = require('express')
 const routes = express.Router()
 const Auth = require('../model/Auth')
 
-routes.post('/login', async (req, res) => {
-    try {
-        if (req.body.email && req.body.email !== '' && req.body.password && req.body.password !== '') {
-            res.send(await Auth.login(req.body.email, req.body.password))
-        } else {
-            res.send({error: 'Missing Information.'})
-        }
-    } catch (e) {
-        console.log(e)
-    }
-})
+routes.post('/login', Auth.login)
 
 routes.post('/token', async (req, res) => {
     try {

@@ -1,19 +1,26 @@
 const jwt = require('jsonwebtoken')
-const User = require('../model/User')
+const User = require('../schema/user')
+const bcrypt = require('bcrypt')
 
-module.exports.login = async (email, password) => {
+exports.login = async (req, res, next) => {
     try {
-        const user = await User.login(email, password)
-        if (user && user.error === 1 ) {
-            return {error: 'Usuário e/ou senha inválido.'}
-        } else if (user && user.error === 2) {
-            return {error: 'Esse usuário não está ativo.'}
-        } else if (user._id) {
-            const token =  await jwt.sign({user: user._id, firstName: user.firstName, email: user.email, lastName: user.lastName}, secretKeyToken, {expiresIn: '30d'})
-            return {token}
+        const user = await User.findOne({ email: req.body.email })
+
+        if ( !user || user === null ) {
+            return res.status(500).send({ error: 'Usuário e/ou senha inválido.' })
         } else {
-            return {
-                error: 'User not found.'
+            if (await bcrypt.compareSync(req.body.password, user.password)) {
+                const token = await jwt.sign(
+                    {
+                        user: user._id,
+                        firstName: user.firstName,
+                        email: user.email,
+                        lastName: user.lastName
+                    },
+                    process.env.JWT_KEY,
+                    {expiresIn: '1h'}
+                )
+                return res.status(200).send({token})
             }
         }
     } catch (e) {
