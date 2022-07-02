@@ -29,26 +29,17 @@ exports.login = async (req, res, next) => {
     }
 }
 
-module.exports.decodeToken = async (token) => {
-    try {
-        if (token) {
-            return await jwt.verify(token, secretKeyToken)
-        } else {
-            return {
-                error: 'Token not valid.'
-            }
-        }
-    } catch (e) {
-        return e
-    }
-}
-
 exports.required = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(' ')[1]
-        const decode = jwt.verify(token, process.env.JWT_KEY)
-        req.usuario = decode
-        next()
+        jwt.verify(token, process.env.JWT_KEY, { algorithms: ['HS256'] }, async (err, payload) => {
+            if (err) {
+                return res.status(500).send({ error: 'Token inválido.' })
+            } else {
+                req.usuario = payload.user
+                next()
+            }
+        })
     }
     catch (error) {
         return res.status(401).send({ mensagem: 'Falha na autenticação.' })

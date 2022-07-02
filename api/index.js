@@ -15,8 +15,6 @@ const url = `mongodb+srv://${user}:${password}@myworkout.idp1wut.mongodb.net/?re
 
 mongoose.connect(url, {dbName: 'myworkout'}).then(()=>{
     console.log('conectou')
-    global.secret_key = 'myworkoutsecretkey'
-    global.secretKeyToken = 'fee254868fe498f4f'
     app.listen(3000)
 }).catch((e)=>console.log(e))
 
