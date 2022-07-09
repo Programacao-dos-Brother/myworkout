@@ -12,7 +12,7 @@ const url = 'mongodb://'+process.env.DB_USER+':'+process.env.DB_PASS+'@mongodb.m
 
 mongoose.connect(url, {dbName: 'myworkout01'}).then(()=>{
     console.log('conectou')
-    app.listen(3000)
+    app.listen(process.env.PORT_API_INDEX)
 }).catch((e)=>console.log(e))
 
 app.use('/goal', require('./routes/goal'))
