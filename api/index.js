@@ -1,12 +1,15 @@
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const app = express()
 app.use(express.urlencoded({
     extended: true
 }))
 app.use(express.json())
+
+app.use(cors({ credentials: true }))
 
 const url = 'mongodb://'+process.env.DB_USER+':'+process.env.DB_PASS+'@mongodb.myworkout.app.br/?directConnection=true&authSource=myworkout01'
 
