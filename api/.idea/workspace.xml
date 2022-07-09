@@ -4,8 +4,6 @@
     <list default="true" id="d4a28318-0f06-4490-848c-1a70b8cdf7c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -78,7 +76,10 @@
       <workItem from="1656525110732" duration="3880000" />
       <workItem from="1656537068313" duration="43000" />
       <workItem from="1656542329357" duration="1300000" />
-      <workItem from="1656766215129" duration="5655000" />
+      <workItem from="1656766215129" duration="6254000" />
+      <workItem from="1656939171472" duration="8000" />
+      <workItem from="1657119576452" duration="1210000" />
+      <workItem from="1657376109909" duration="3476000" />
     </task>
     <servers />
   </component>

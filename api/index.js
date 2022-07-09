@@ -8,12 +8,9 @@ app.use(express.urlencoded({
 }))
 app.use(express.json())
 
-const user = process.env.DB_USER
-const password = encodeURIComponent(process.env.DB_PASS)
+const url = 'mongodb://'+process.env.DB_USER+':'+process.env.DB_PASS+'@mongodb.myworkout.app.br/?directConnection=true&authSource=myworkout01'
 
-const url = `mongodb+srv://${user}:${password}@myworkout.idp1wut.mongodb.net/?retryWrites=true&w=majority`
-
-mongoose.connect(url, {dbName: 'myworkout'}).then(()=>{
+mongoose.connect(url, {dbName: 'myworkout01'}).then(()=>{
     console.log('conectou')
     app.listen(3000)
 }).catch((e)=>console.log(e))
