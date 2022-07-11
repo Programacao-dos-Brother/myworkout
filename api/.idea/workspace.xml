@@ -4,6 +4,9 @@
     <list default="true" id="d4a28318-0f06-4490-848c-1a70b8cdf7c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +82,8 @@
       <workItem from="1656766215129" duration="6254000" />
       <workItem from="1656939171472" duration="8000" />
       <workItem from="1657119576452" duration="1210000" />
-      <workItem from="1657376109909" duration="3687000" />
+      <workItem from="1657376109909" duration="7161000" />
+      <workItem from="1657575238713" duration="39000" />
     </task>
     <servers />
   </component>
