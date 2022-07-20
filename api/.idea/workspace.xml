@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4a28318-0f06-4490-848c-1a70b8cdf7c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/model/Equipment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/ExerciseCategory.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/equipment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/exerciseCategory.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schema/equipment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schema/exerciseCategory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/asymmetry.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/asymmetry.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/goal.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/goal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/posturalDeviation.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/posturalDeviation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/step.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/step.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/equipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/schema/equipment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +89,7 @@
       <workItem from="1657583339700" duration="3734000" />
       <workItem from="1657825735536" duration="12000" />
       <workItem from="1657910590034" duration="931000" />
-      <workItem from="1658353048799" duration="3982000" />
+      <workItem from="1658353048799" duration="5512000" />
     </task>
     <servers />
   </component>
