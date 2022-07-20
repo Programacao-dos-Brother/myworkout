@@ -6,14 +6,8 @@ const UserSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        lastName: {
-            type:String,
-            required: true
-        },
-        phone: {
-            type: String,
-            required: true
-        },
+        lastName: String,
+        phone: String,
         email: {
             type: String,
             required: true
@@ -51,8 +45,7 @@ const UserSchema = new mongoose.Schema(
             }
         ],
         permission: Number
-    },
-    { collection: 'user' }
+    }
 )
 
-module.exports =  mongoose.model('User', UserSchema)
+module.exports =  mongoose.model('User', UserSchema, 'user')

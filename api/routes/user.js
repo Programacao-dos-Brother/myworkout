@@ -9,5 +9,4 @@ routes.get('/read', Auth.required, User.readUsers)
 
 routes.get('/read/:id', Auth.required, User.readUser)
 
-
 module.exports = routes

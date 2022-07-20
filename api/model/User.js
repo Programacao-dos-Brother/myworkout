@@ -7,10 +7,10 @@ exports.createUser = async (req, res, next) => {
             await bcrypt.hash(req.body.password, 10, async (errBcrypt, hash) => {
                 return res.status(201).send(await User.create({
                     firstName: req.body.firstName,
-                    lastName: req.body.lastName,
+                    lastName: req.body.lastName ? req.body.lastName : null,
                     password: hash,
                     email: req.body.email,
-                    phone: req.body.phone,
+                    phone: req.body.phone ? req.body.phone : null,
                     permission: req.body.permission ? req.body.permission : null,
                     goals: req.body.goals ? req.body.goals : null,
                     steps: req.body.steps ? req.body.steps : null,

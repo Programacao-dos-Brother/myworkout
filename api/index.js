@@ -11,6 +11,8 @@ app.use(express.json())
 
 app.use(cors({ credentials: true }))
 
+app.use('/exercisecategory', require('./routes/exerciseCategory'))
+app.use('/equipment', require('./routes/equipment'))
 app.use('/goal', require('./routes/goal'))
 app.use('/step', require('./routes/step'))
 app.use('/postural', require('./routes/posturalDeviation'))
